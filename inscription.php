@@ -22,7 +22,7 @@
                 // Code de vérification 
                 ?>
             </form>
-            <p>Pas encore inscrit ? Cliquez <a href="inscription.php">ici</a></p>
+            <p>Vous avez déjà un compte ? Cliquez <a href="index.php">ici</a></p>
         </div>
     </body>
 </html>
