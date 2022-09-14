@@ -1,5 +1,6 @@
 <?php
 include "bdd.php";
+session_start();
 ?>
 <html>
 <head>
