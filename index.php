@@ -33,12 +33,14 @@ include "bdd.php";
             $rqt_user->execute();
             $isValid = $rqt_user->rowCount();
 
-            $rqt_username = $bdd -> prepare("SELECT login FROM users WHERE login = :username");
+            $rqt_username = $bdd->prepare("SELECT login FROM users WHERE login = :username");
             $rqt_username->bindValue(":username", $username);
-            $rqt_username-> execute();
+            $rqt_username->execute();
             $countName = $rqt_username->rowCount();
 
             if ($isValid == 1) {
+                $_SESSION["username"] = $username;
+                $_SESSION["password"] = $password;
                 Header("Location: profile.php");
             } else if ($countName == 0) {
                 Header("Location: inscription.php");
