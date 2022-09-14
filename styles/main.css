@@ -27,3 +27,6 @@ div input{
     margin-left: auto;
     width: 200px;
 }
+.errorP{
+    color: red;
+}
