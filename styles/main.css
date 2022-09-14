@@ -1,0 +1,29 @@
+body{
+    
+}
+#container{
+    width: 500px;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    width: 200px;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div label{
+    margin-right: auto;
+    margin-right: 10px;
+}
+div input{
+    margin-left: auto;
+    width: 200px;
+}
