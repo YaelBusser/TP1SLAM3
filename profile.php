@@ -9,7 +9,11 @@ session_start();
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h1>Bienvenue <span><?php echo $_SESSION["username"]; ?></span></h1>
+=======
+<h1>Bienvenue <span><?= $_SESSION["username"]; ?></span></h1>
+>>>>>>> Profile
 =======
 <h1>Bienvenue <span><?= $_SESSION["username"]; ?></span></h1>
 >>>>>>> Profile
