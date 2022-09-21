@@ -8,6 +8,6 @@ session_start();
     <link rel="stylesheet" href="styles/main.css" media="screen" type="text/css"/>
 </head>
 <body>
-
+    <h1>Bienvenue, <?= $_SESSION["username"]; ?></h1>
 </body>
 </html>
