@@ -7,8 +7,8 @@ body{
     max-height: 300px;
     border: 1px solid black;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    margin: auto;
     border-radius: 10px 10px 10px 10px
 }
 .formConnexion{
@@ -32,12 +32,7 @@ body{
 .errorP{
     color: red;
 }
-.formInscription{
-    border: 1px solid black;
-}
 .body-connexion{
     height: 100vh;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+
 }

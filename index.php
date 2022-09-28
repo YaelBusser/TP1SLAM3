@@ -17,14 +17,14 @@ session_start();
             <h1>Connexion</h1>
             <div>
                 <label for="username"><b>Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username"
+                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" id="username"
                        value="<?php if (isset($_POST["username"])) {
                            echo $_POST["username"];
                        } ?>">
             </div>
             <div>
                 <label for="password"><b>Mot de passe</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password">
+                <input type="password" placeholder="Entrer le mot de passe" name="password" id="password">
             </div>
             <input type="submit" id='submit' value='LOGIN' class="btn" name="btn">
             <?php
