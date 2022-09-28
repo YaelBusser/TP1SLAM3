@@ -3,30 +3,41 @@ body{
 }
 #container{
     width: 500px;
+    height: 250px;
+    max-height: 300px;
     border: 1px solid black;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     border-radius: 10px 10px 10px 10px
 }
-form{
+.formConnexion{
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
 .btn{
     width: 200px;
 }
-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.formConnexion div label{
+    width: 50rem;
 }
-div label{
-    margin-right: auto;
-    margin-right: 10px;
-}
-div input{
-    margin-left: auto;
+.formConnexion div input{
+
     width: 200px;
+}
+.formConnexion h1{
+    text-align: center;
 }
 .errorP{
     color: red;
+}
+.formInscription{
+    border: 1px solid black;
+}
+.body-connexion{
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
