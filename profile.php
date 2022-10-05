@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(isset($_SESSION["username"])){
 ?>
 <html>
 <head>
@@ -9,5 +10,7 @@ session_start();
 </head>
 <body>
 <h1>Bienvenue <span><?php echo $_SESSION["username"]; ?></span></h1>
+<a href="deconnexion.php">se déconnecter</a>
 </body>
 </html>
+<?php } ?>

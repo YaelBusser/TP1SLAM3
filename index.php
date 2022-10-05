@@ -32,18 +32,16 @@ session_start();
                 $username = htmlspecialchars($_POST["username"]);
                 $password = htmlspecialchars($_POST["password"]);
 
-                $rqt_user = $bdd->prepare("SELECT login, pswd FROM users WHERE login = :username AND pswd = :password");
-                $rqt_user->bindValue(":username", $username);
-                $rqt_user->bindValue(":password", $password);
-                $rqt_user->execute();
-                $isValid = $rqt_user->rowCount();
+                $rqt_user = $bdd->prepare("SELECT login, pswd FROM users WHERE login = ?");
+                $rqt_user->execute([$username]);
+                $info = $rqt_user->fetch();
 
                 $rqt_username = $bdd->prepare("SELECT login FROM users WHERE login = :username");
                 $rqt_username->bindValue(":username", $username);
                 $rqt_username->execute();
                 $countName = $rqt_username->rowCount();
 
-                if ($isValid == 1) {
+                if (password_verify($password, $info["pswd"])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
                     Header("Location: profile.php");

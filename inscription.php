@@ -16,6 +16,11 @@
                    id="usernameInscription">
         </div>
         <div>
+            <label for="emailInscription"><b>Adresse mail</b></label>
+            <input type="email" placeholder="Entrer le nom d'utilisateur" name="emailInscription"
+                   id="emailInscription">
+        </div>
+        <div>
             <label for="passwordInscription"><b>Mot de passe</b></label>
             <input type="password" placeholder="Entrer le mot de passe" name="passwordInscription"
                    id="passwordInscription">
@@ -27,13 +32,19 @@
         </div>
         <input type="submit" id='submit' value="SIGN IN" name="btnInscription">
         <?php
-        if (!empty($_POST["usernameInscription"]) && !empty($_POST["passwordInscription"]) && !empty($_POST["passwordInscription2"])) {
-            $username = $_POST["usernameInscription"];
+        require("bdd.php");
+        if (!empty($_POST["usernameInscription"]) && !empty($_POST["emailInscription"]) && !empty($_POST["passwordInscription"]) && !empty($_POST["passwordInscription2"])) {
+            $username = htmlspecialchars($_POST["usernameInscription"]);
+            $email = htmlspecialchars($_POST["emailInscription"]);
             $mdp = $_POST["passwordInscription"];
             $mdp2 = $_POST["passwordInscription2"];
-            if($_POST["passwordInscription"] == $_POST["passwordInscription2"]){
+            if ($mdp == $mdp2) {
+                $mdp = password_hash($mdp, PASSWORD_BCRYPT);
+                $rqt_inscription = $bdd->prepare("INSERT INTO users(login, pswd, email, date_creation, date_activation, img_profil) VALUES (?, ?, ?, ?, ?, ?)");
+                $rqt_inscription->execute([$username, $mdp, $email, date("Y-m-d"), null, "ok"]);
+                Header("Location: index.php");
 
-            }else{
+            } else {
                 $error = "Vos mots de passe ne sont pas identiques !";
             }
         } else {
@@ -43,7 +54,7 @@
         <p class='errorP'>
             <?php
             if (isset($_POST["btnInscription"])) {
-                if ($error) {
+                if (isset($error)) {
                     echo $error;
                 }
             }
