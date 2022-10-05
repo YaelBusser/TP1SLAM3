@@ -30,17 +30,17 @@ session_start();
             <?php
             if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["btn"])) {
                 $username = htmlspecialchars($_POST["username"]);
-                $password = htmlspecialchars($_POST["password"]);
+                $password = $_POST["password"];
 
                 $rqt_user = $bdd->prepare("SELECT login, pswd FROM users WHERE login = ?");
                 $rqt_user->execute([$username]);
                 $info = $rqt_user->fetch();
 
-                $rqt_username = $bdd->prepare("SELECT login FROM users WHERE login = :username");
-                $rqt_username->bindValue(":username", $username);
-                $rqt_username->execute();
+                $rqt_username = $bdd->prepare("SELECT login FROM users WHERE login = ?");
+                $rqt_username->execute([$username]);
                 $countName = $rqt_username->rowCount();
-
+                var_dump($password);
+                var_dump($info["pswd"]);
                 if (password_verify($password, $info["pswd"])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;

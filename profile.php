@@ -13,4 +13,4 @@ if(isset($_SESSION["username"])){
 <a href="deconnexion.php">se déconnecter</a>
 </body>
 </html>
-<?php } ?>
+<?php }else{ Header("Location: index.php");} ?>
